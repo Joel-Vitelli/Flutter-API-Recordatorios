@@ -18,5 +18,4 @@ class Paciente {
       dniPaciente : parsedJson['dniPaciente'],
     );
   }
-
 }

@@ -1,6 +1,6 @@
-# api_recordatorio
+# API - Flutter - Recordatorios
 
-A new Flutter application.
+Aplicación de FLutter que consume una API para acceder a un JSON con muchos recordatorios, los enseña en pantalla y permite eliminarlos con un Swipe a la derecha o izquierda.
 
 ## Getting Started
 

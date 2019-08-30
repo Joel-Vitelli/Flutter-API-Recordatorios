@@ -1,6 +1,5 @@
-import 'package:api_recordatorio/View/buttom_dismiss.dart';
 import 'package:flutter/material.dart';
-import 'buttom_dismiss.dart';
+
 
 class RecordatorioCompleto extends StatelessWidget{
 
@@ -29,18 +28,25 @@ class RecordatorioCompleto extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final tituloW = Text(
-      "Número de recordatorio: ${idRecordatorio}",
+      "Recordatorio N°  : ${idRecordatorio}",
       style: TextStyle(
         fontWeight: FontWeight.bold,
+        color: Colors.white,
         fontSize: 20.0,
       ),
       textAlign: TextAlign.center,
     );
 
-    final descripcionW = Text(
-      "Descripción: ${descripcion}",
-
+    final descripcionW = Column(
+      children: <Widget>[
+        Container(
+          child: Text(
+            "Descripción: ${descripcion}",
+          ),
+        )
+      ],
     );
+
 
     final fechaW = Text(
       "Fecha: ${fecha}"
@@ -72,14 +78,14 @@ class RecordatorioCompleto extends StatelessWidget{
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                  boxShadow: [
+                 boxShadow: [
                     BoxShadow(
                       color: Colors.black,
                       blurRadius: 10.0, // has the effect of softening the shadow
                       spreadRadius: 1.0, // has the effect of extending the shadow
                       offset: Offset(
-                        5.0, // horizontal, move right 10
-                        5.0, // vertical, move down 10
+                        3.0, // horizontal, move right 10
+                        3.0, // vertical, move down 10
                       ),
                     )
                   ]
@@ -87,22 +93,24 @@ class RecordatorioCompleto extends StatelessWidget{
               height: 30,
               width: 370,
               margin: EdgeInsets.only(
-                  bottom: 5.0
+                  bottom: 15.0,
+                  top: 10.0
               ),
               child: Card(
+                color: Colors.black12,
                 child: tituloW,
               ),
             ),
             Container(
-              height: 110,
-              width: 370,
+              height: 130,
+              width: 380,
               margin: EdgeInsets.only(
                   bottom: 5.0
               ),
-              child: Card(
-                child: Container(
+              child:
+                 Container(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       fechaW,
                       profesionalW,
@@ -112,13 +120,9 @@ class RecordatorioCompleto extends StatelessWidget{
                       dniPacienteW,
                       descripcionW
                     ],
-                  ),
                 ),
               ),
             ),
-            Container(
-              child: ButtomDismiss(visible),
-            )
           ],
 
         )

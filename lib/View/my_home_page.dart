@@ -26,6 +26,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text(
             "Recordatorios Api"
@@ -35,8 +36,9 @@ class MyHomePageState extends State<MyHomePage> {
         itemCount: data.contenido.isEmpty ? 0 : data.contenido.length,
         itemBuilder: (context, index){
           return Dismissible(
-              key: Key(data.contenido[0].descripcion),
-              background: Container(color: Colors.red),
+              key: Key((data.contenido[0].idRecordatorio + data.contenido.length).toString()),
+              background: Container(color: Colors.deepPurple),
+              secondaryBackground: Container(color : Colors.greenAccent),
               onDismissed: (direction) {
                 setState(() {
                   data.contenido.removeAt(index);
@@ -53,14 +55,6 @@ class MyHomePageState extends State<MyHomePage> {
                   )
               )
           );
-
-          /*Card(
-              child: Column(
-                children: <Widget>[
-                  RecordatorioCompleto(data.contenido[index].idRecordatorio,data.contenido[index].descripcion,data.contenido[index].fecha, data.contenido[index].profesional, data.contenido[index].paciente.idPaciente, data.contenido[index].paciente.nombrePaciente, data.contenido[index].paciente.apellidoPaciente, data.contenido[index].paciente.dniPaciente)
-                ],
-              )
-          );*/
         },
       ),
     );
